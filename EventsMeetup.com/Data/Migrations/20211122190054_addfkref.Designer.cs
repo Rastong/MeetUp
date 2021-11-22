@@ -4,14 +4,16 @@ using EventsMeetup.com.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EventsMeetup.com.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211122190054_addfkref")]
+    partial class addfkref
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -127,20 +129,26 @@ namespace EventsMeetup.com.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
                     b.Property<int>("EventID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("EventListID")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("EventID");
+                    b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("EventListID");
 
                     b.ToTable("userFavorites");
                 });
@@ -364,15 +372,13 @@ namespace EventsMeetup.com.Data.Migrations
 
             modelBuilder.Entity("EventsMeetup.com.Models.UserFavorites", b =>
                 {
-                    b.HasOne("EventsMeetup.com.Models.EventList", "Event")
-                        .WithMany()
-                        .HasForeignKey("EventID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("EventsMeetup.com.Models.ApplicationUser", null)
+                        .WithMany("Favorites")
+                        .HasForeignKey("ApplicationUserId");
 
-                    b.HasOne("EventsMeetup.com.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("UserID");
+                    b.HasOne("EventsMeetup.com.Models.EventList", null)
+                        .WithMany("Favorites")
+                        .HasForeignKey("EventListID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

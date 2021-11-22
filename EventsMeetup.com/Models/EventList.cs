@@ -23,5 +23,6 @@ namespace EventsMeetup.com.Models
         public DateTime DateAndTime { get; set; }
         public int GuestCount { get; set; }
         public bool SpotsFilled { get; set; }
+        
     }
 }

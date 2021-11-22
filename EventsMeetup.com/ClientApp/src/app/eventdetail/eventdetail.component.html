@@ -1,0 +1,12 @@
+<div>
+  <img src="{{Event.photo}}" />
+  <p>
+    {{Event.name}} | {{Event.dateAndTime | date:'yyyy-MM-dd @ HH:mm'}}
+  </p>
+  <button (click)="toggleDisplay()">More Info</button>
+  <div *ngIf="display == true">
+    <p>
+      {{Event.summary}}
+    </p>
+  </div>
+</div>

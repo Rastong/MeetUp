@@ -8,5 +8,6 @@ namespace EventsMeetup.com.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        
     }
 }
