@@ -8,6 +8,5 @@ export interface EventList {
   dateAndTime: string;
   guestCount: number;
   spotsFilled: boolean;
-  //Reference by FK in userFavorites
-  favorites: null;
+ 
 }

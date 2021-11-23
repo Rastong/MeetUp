@@ -1,0 +1,6 @@
+<app-eventdetail *ngFor="let E of favorites" [Event]="E" [IsFavePage]="true" (UpdateFave)="removeFavorite($event)"></app-eventdetail>
+<!--<div class="container">
+  <div *ngFor="let f of favorites">
+    <button (click)="removeFavorite(f.id)"> </button>
+  </div>
+</div>-->

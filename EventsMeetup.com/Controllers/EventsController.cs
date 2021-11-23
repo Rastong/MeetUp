@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using EventsMeetup.com.Models;
 using EventsMeetup.com.Data;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace EventsMeetup.com.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
     public class EventsController : ControllerBase
@@ -47,5 +47,19 @@ namespace EventsMeetup.com.Controllers
             return result;
         }
 
+        //api/Events/AddEvent
+        [HttpPost("AddEvent")]
+        public EventList AddEvent(EventList newEvent)
+        {     
+            using (context) 
+            {
+                context.eventLists.Add(newEvent);
+                context.SaveChanges();
+            }
+
+            return newEvent;
+        }
+
     }
 }
+

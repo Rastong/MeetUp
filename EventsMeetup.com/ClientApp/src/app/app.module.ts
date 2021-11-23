@@ -14,6 +14,8 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailComponent } from './eventdetail/eventdetail.component';
+import { UserFavoritesComponent } from './user-favorites/user-favorites.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { EventDetailComponent } from './eventdetail/eventdetail.component';
     CounterComponent,
     FetchDataComponent,
     EventListComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    UserFavoritesComponent,
+    CreateEventComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,7 +39,9 @@ import { EventDetailComponent } from './eventdetail/eventdetail.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'allevents', component: EventListComponent },
-      //{ path: 'event/:id', component: EventDetailComponent }
+      //{ path: 'event/:id', component: EventDetailComponent },
+      { path: 'favorites', component: UserFavoritesComponent, canActivate: [AuthorizeGuard] },
+      { path: 'create', component: CreateEventComponent, canActivate: [AuthorizeGuard] }
     ])
   ],
   providers: [

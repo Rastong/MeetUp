@@ -13,10 +13,10 @@ export class EventListComponent {
     eventList: EventList[] = [];
 
     constructor(private service: EventService) {
-
+    
   }
 
-
+    
   getMoreInfo(id: number) {
     this.service.getEventById(id)
   }
