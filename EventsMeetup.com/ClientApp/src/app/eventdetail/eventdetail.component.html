@@ -1,12 +1,10 @@
-<div>
-  <img src="{{Event.photo}}" />
-  <p>
-    {{Event.name}} | {{Event.dateAndTime | date:'yyyy-MM-dd @ HH:mm'}}
-  </p>
-  <button (click)="toggleDisplay()">More Info</button>
-  <div *ngIf="display == true">
-    <p>
-      {{Event.summary}}
-    </p>
+<div class="card" style="width: 35rem;">
+  <img class="card-img-top " src="{{Event.photo}}" alt="Card image cap">
+  <div class="card-title">{{Event.name}} | {{Event.dateAndTime | date:'yyyy-MM-dd @ HH:mm'}}</div>
+  <button class="btn btn-primary " (click)="toggleDisplay()"><i class="fas fa-info-circle fa-lg"></i> More Info</button>
+  <div class="card-body" *ngIf="display == true">
+    <p class="card-text">{{Event.summary}}.</p>
+    <button class="btn btn-success"(click)="addToFave()" *ngIf="IsFavePage == false"><i class="far fa-heart"></i> Add to Favorites</button>
+    <button class="btn btn-danger"(click)="removeFromFave()" *ngIf="IsFavePage == true"><i class="fas fa-trash"></i> Remove from Favorites</button>
   </div>
 </div>

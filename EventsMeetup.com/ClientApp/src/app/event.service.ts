@@ -25,5 +25,6 @@ export class EventService {
   postEvent(event: EventList) {
     return this.http.post(this.baseUrl + 'api/Events/AddEvent', event);
   }
+ 
   
 }
