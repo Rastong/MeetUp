@@ -49,8 +49,19 @@ namespace EventsMeetup.com.Controllers
 
         //api/Events/AddEvent
         [HttpPost("AddEvent")]
-        public EventList AddEvent(EventList newEvent)
-        {     
+        public EventList AddEvent(string name, string host, int categoryID, string summary, string photo, DateTime dateTime, int guestCount, bool spotsFilled )
+        {
+            EventList newEvent = new EventList()
+            {
+                Name = name,
+                Host = host,
+                CategoryID = categoryID,
+                Summary = summary,
+                Photo = photo,
+                DateAndTime = dateTime,
+                GuestCount = guestCount,
+                SpotsFilled = spotsFilled
+            };
             using (context) 
             {
                 context.eventLists.Add(newEvent);
