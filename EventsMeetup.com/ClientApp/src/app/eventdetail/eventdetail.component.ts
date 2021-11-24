@@ -17,6 +17,8 @@ export class EventDetailComponent {
   @Output() UpdateFave = new EventEmitter<EventList>();
   display: boolean = false;
 
+  status: string = "";
+
 
   /** event detail ctor */
   constructor(private service: EventService, private faveService: FavoritesService) {
@@ -34,6 +36,7 @@ export class EventDetailComponent {
   addToFave(): any {
     this.faveService.addFavorite(this.Event.id, this.Event.categoryID).subscribe((response: any) => {
       console.log(response);
+      this.status = "Added To Favorites";
     });
   }
 
@@ -41,6 +44,7 @@ export class EventDetailComponent {
     this.UpdateFave.emit(this.Event);
     this.faveService.deleteFavorite(this.Event.id).subscribe((response: any) => {
       console.log(response);
+      this.status = "Removed from Favorites"
     });
   }
 
