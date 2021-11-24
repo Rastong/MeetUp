@@ -5,6 +5,18 @@ a {
   color: #0366d6;
 }
 
+body {
+  background-image: linear-gradient(to bottom right, rgba(234, 222, 184, 1), rgba(207, 183, 132), rgba(160, 159, 87, 0.9));
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+    
+}
+
+html {
+    height: 100%;
+}
+
+
 code {
   color: #e01a76;
 }
@@ -13,4 +25,9 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.title {
+    font-weight: 600 !important;
+    font-size: medium !important;
 }

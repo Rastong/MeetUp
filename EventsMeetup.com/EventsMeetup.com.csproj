@@ -31,6 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\alert.js" />
+    <None Remove="ClientApp\src\app\alert.js.map" />
+    <None Remove="ClientApp\src\app\alert.ts" />
     <None Remove="ClientApp\src\app\EventList.ts" />
   </ItemGroup>
 

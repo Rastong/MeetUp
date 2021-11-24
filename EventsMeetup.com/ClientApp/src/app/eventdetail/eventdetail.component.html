@@ -1,11 +1,46 @@
-<div class="card" style="width: 35rem;">
-  <img class="card-img-top " src="{{Event.photo}}" alt="Card image cap">
-  <div class="card-title">{{Event.name}} | {{Event.dateAndTime | date:'yyyy-MM-dd @ HH:mm'}}</div>
-  <button class="btn btn-primary " (click)="toggleDisplay()"><i class="fas fa-info-circle fa-lg"></i> More Info</button>
-  <div class="card-body" *ngIf="display == true">
-    <p class="card-text">{{Event.summary}}.</p>
-    <button class="btn btn-success"(click)="addToFave()" *ngIf="IsFavePage == false"><i class="far fa-heart"></i> Add to Favorites</button>
-    <button class="btn btn-danger"(click)="removeFromFave()" *ngIf="IsFavePage == true"><i class="fas fa-trash"></i> Remove from Favorites</button>
-    <p>{{ status }}</p>
+<div class="container d-flex justify-content-center" style="padding: 0.25rem">
+  <div class="row shadow p-1 mb-3 bg-white rounded">
+    <div class="col-md-12">
+      <div class="card" style="width: 35rem;">
+        <img class="card-img-top " src="{{Event.photo}}" alt="Card image cap">
+        <div class="card-title title">
+          <div class="row">
+            <div class="col-sm-5">
+              {{Event.name}}
+            </div>
+            <div class="col-sm-7">
+             {{getCategory()}} Event
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary " (click)="toggleDisplay()"><i class="fas fa-info-circle fa-lg"></i> More Info</button>
+        <div class="card-body" *ngIf="display == true">
+          <div class="card-text">
+            <div class="row">
+              <div class="col-md-12">
+                Please join us at:
+                {{Event.dateAndTime | date:'yyyy-MM-dd @ HH:mm'}}.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                {{Event.summary}}.
+              </div>
+            </div><br />
+            <div class="row">
+              <div class="col-md-6">
+                Spots: {{Event.guestCount}}
+              </div>
+              <div class="col-md-6">
+                Is the event filled? {{Event.spotsFilled ? 'Sorry there are no more spots' : 'Looks like you can still go!'}}
+              </div>
+            </div>
+          </div>
+          <br />
+          <button class="btn btn-success" (click)="addToFave()" *ngIf="IsFavePage == false"><i class="far fa-heart"></i> Add to Favorites</button>
+          <button class="btn btn-danger" (click)="removeFromFave()" *ngIf="IsFavePage == true"><i class="fas fa-trash"></i> Remove from Favorites</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
