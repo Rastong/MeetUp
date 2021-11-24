@@ -6,5 +6,6 @@
     <p class="card-text">{{Event.summary}}.</p>
     <button class="btn btn-success"(click)="addToFave()" *ngIf="IsFavePage == false"><i class="far fa-heart"></i> Add to Favorites</button>
     <button class="btn btn-danger"(click)="removeFromFave()" *ngIf="IsFavePage == true"><i class="fas fa-trash"></i> Remove from Favorites</button>
+    <p>{{ status }}</p>
   </div>
 </div>
