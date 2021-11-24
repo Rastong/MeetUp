@@ -3,10 +3,11 @@ import { EventService } from '../event.service';
 import { EventList } from '../EventList';
 import { FavoritesService } from '../favorites.service';
 
+
 @Component({
-    selector: 'app-eventdetail',
-    templateUrl: './eventdetail.component.html',
-    styleUrls: ['./eventdetail.component.css']
+  selector: 'app-eventdetail',
+  templateUrl: './eventdetail.component.html',
+  styleUrls: ['./eventdetail.component.css']
 })
 /** event detail component*/
 export class EventDetailComponent {
@@ -43,5 +44,34 @@ export class EventDetailComponent {
     });
   }
 
+  getCategory(): string {
+    let result: string = "";
+    if (this.Event.categoryID == 1) {
+      result = "Cultures & Languages";
+    }
+    else if (this.Event.categoryID == 2) {
+      result = "Social";
+    }
+    else if (this.Event.categoryID == 3) {
+      result = "Business";
+    }
+    else if (this.Event.categoryID == 4) {
+      result = "Religion";
+    }
+    else if (this.Event.categoryID == 5) {
+      result = "Science";
+    }
+    else if (this.Event.categoryID == 6) {
+      result = "Health & Support";
+    }
+    else if (this.Event.categoryID == 7) {
+      result = "Concert & Performances";
+    }
+
+    return result;
+  }
+
 
 }
+
+

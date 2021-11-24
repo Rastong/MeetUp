@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">EventsMeetup.com</a>
+      <a class="navbar-brand" [routerLink]="['/allevents']">Events Meetup</a>
       <button class="navbar-toggler"
               type="button"
               data-toggle="collapse"
@@ -18,16 +18,13 @@
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <a class="nav-link text-dark" [routerLink]="['/allevents']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+            <a class="nav-link text-dark" [routerLink]="['/favorites']">My Favorites</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/allevents']">Events</a>
+            <a class="nav-link text-dark" [routerLink]="['/create']">Create Event</a>
           </li>
         </ul>
       </div>
