@@ -20,7 +20,9 @@ namespace EventsMeetup.com.Models
         public string Summary { get; set; }
         [Column(TypeName = "nvarchar(100)")]
         public string Photo { get; set; }
+        //YYYY-DD-MMTHH:MM:SS
         public DateTime DateAndTime { get; set; }
+
         public int GuestCount { get; set; }
         public bool SpotsFilled { get; set; }
         

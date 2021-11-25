@@ -24,7 +24,7 @@ export class EventService {
 
   //addEvent
   postEvent(formData: EventList) {
-    return this.http.post(this.baseUrl + `api/Events/AddEvent?name=${formData.name}&host=${formData.host}&categoryID=${formData.categoryID}&summary=${formData.summary}&photo=${formData.photo}&guestCount=${formData.guestCount}&dateAndTime=${formData.dateAndTime}&spotsFilled=${formData.spotsFilled}`, {});
+    return this.http.post(this.baseUrl + `api/Events/AddEvent?name=${formData.name}&host=${formData.host}&categoryID=${formData.categoryID}&summary=${formData.summary}&photo=${formData.photo}&guestCount=${formData.guestCount}&dateTime=${formData.dateAndTime}&spotsFilled=${formData.spotsFilled}`, {});
   }
  
   

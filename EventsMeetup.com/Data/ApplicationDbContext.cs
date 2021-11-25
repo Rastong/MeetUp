@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace EventsMeetup.com.Data
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
-    {
+    {   //need a DbSet for each table in DB.
         public DbSet<EventList> eventLists { get; set; }
         public DbSet<UserFavorites> userFavorites { get; set; }
 
