@@ -1,53 +1,103 @@
+<div class="container d-flex justify-content-center col-md-4 list">
+  <form #nameForm="ngForm" (ngSubmit)="addToEvents(nameForm)">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-pen"></i>
+          </div>
+        </div>
+        <input class="form-control-lg" type="text" name="Name" id="name" ngModel required placeholder="What is the event called?" />
+      </div>
+    </div>
 
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+        <input class="form-control-lg" type="text" name="Host" id="host" ngModel required placeholder="Who is hosting?" />
+      </div>
+    </div>
 
+    <p>Please choose the category</p>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-list"></i>
+          </div>
+        </div>
+        <select name="CategoryID" id="categoryID" class="form-control-lg" ngModel required>
+          <option value=1>Cultures & Languages</option>
+          <option value=2>Social</option>
+          <option value=3>Business</option>
+          <option value=4>Religion</option>
+          <option value=5>Science</option>
+          <option value=6>Health and Support</option>
+          <option value=7>Concert & Performances</option>
+        </select>
+      </div>
+    </div>
 
-<form #nameForm="ngForm" (ngSubmit)="addToEvents(nameForm)">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-book"></i>
+          </div>
+        </div>
+        <input class="form-control-lg" type="text" name="Summary" id="summary" placeholder="Enter summary here" ngModel required />
+      </div>
+    </div>
 
-  <label for="name">Name of Event: </label>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-image"></i>
+          </div>
+        </div>
+        <input class="form-control-lg" type="text" name="Photo" id="photo" placeholder="Enter link to image" ngModel required />
+      </div>
+    </div>
 
-  <input type="text" name="Name" id="name"  ngModel required />
-  <br />
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="far fa-calendar"></i>
+          </div>
+        </div>
+        <input class="form-control-lg" type="date" name="Date" id="date" placeholder="YYYY/MM/DD" ngModel required />
 
-  <label for="host">Host of Event: </label>
-  <input type="text" name="Host" id="host" ngModel required />
-  <br />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-clock"></i>
+          </div>
+        </div>
+        <input class="form-control-lg" type="time" name="Time" id="Time" placeholder="HH:MM" ngModel required />
+      </div>
+    </div>
 
-  <label for="categoryID">Please choose which category the event is. </label>
-  <br />
-  <select name="CategoryID" id="categoryID"  ngModel required>
-    <option value=1>Cultures & Languages</option>
-    <option value=2>Social</option>
-    <option value=3>Business</option>
-    <option value=4>Religion</option>
-    <option value=5>Science</option>
-    <option value=6>Health and Support</option>
-    <option value=7>Concert & Performances</option>
-  </select>
-  <br />
-
-  <label for="summary">Summary of Event </label>
-  <input type="text" name="Summary" id="summary"ngModel required />
-  <br />
-
-  <label for="photo">Link to photo of Event</label>
-  <input type="text" name="Photo" id="photo" ngModel required/>
-  <br />
-
-  <label for="dateAndTime">Date and Time of Event</label>
-  <input type="datetime" name="DateAndTime" id="dateAndTime" ngModel required/>
-  <br />
-
-  <label for="guestCount">How many guests can this event hold? </label>
-  <input type="number" name="GuestCount" id="guestCount" ngModel required/>
-  <br />
-
-  <p>Is this a private event</p>
-  <label for="SpotsFilledTrue">Yes</label>
-  <input type="radio" id="SpotsFilledTrue" name="SpotsFilled" value="True" ngModel required>
-
-
-  <label for="SpotsFilledFalse">No</label>
-  <input type="radio" id="SpotsFilledFalse" name="SpotsFilled" value="False" ngModel required>
-  <br />
-  <input type="submit" />
-</form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="far fa-address-book"></i>
+          </div>
+        </div>
+        <input class="form-control-lg" type="number" name="GuestCount" id="guestCount" placeholder="How many guests?" ngModel required />
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary btn-lg btn-block" />
+    </div>
+  </form>
+</div>

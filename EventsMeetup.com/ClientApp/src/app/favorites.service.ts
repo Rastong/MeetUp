@@ -10,21 +10,23 @@ export class FavoritesService {
 
   }
 
-
-
-  //GetFavorites
   getFavorites(): any {
     return this.http.get(this.baseUrl + 'api/UserFavorites/GetFavorites');
   }
 
-  //AddFavorite
-  //possible issue with route?param="". check on later. 
+  //maybe use later??!??
+  //getSimilar(currentFavs: EventList[]): any {
+  //  return this.http.get(this.baseUrl + 'api/UserFavorites/GetSimilar');
+  //}
+ 
+  //we need both eventId and categoryId to be sent through because that is what the controller takes as parameters. Backend takes care of the user. 
   addFavorite(eventId: number, categoryId: number): any {
     return this.http.post(this.baseUrl + `api/UserFavorites/AddFavorite?eventId=${eventId}&categoryID=${categoryId}`, eventId);
   }
-
+  //only event id is needed because it is PK.
   deleteFavorite(eventId: number): any {
     return this.http.delete(this.baseUrl + `api/UserFavorites/DeleteFavorite/${eventId}`);
   }
+
 
 }

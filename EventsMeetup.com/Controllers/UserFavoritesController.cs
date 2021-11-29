@@ -8,6 +8,7 @@ using EventsMeetup.com.Models;
 using EventsMeetup.com.Data;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventsMeetup.com.Controllers
 {
@@ -26,11 +27,27 @@ namespace EventsMeetup.com.Controllers
         [HttpGet("GetFavorites")]
         public List<UserFavorites> GetFavorites()
         { 
+            //easy way to find current user.
             ClaimsPrincipal currentUser = this.User;
             string currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             return this.context.userFavorites.Where(F => F.UserID == currentUserID).ToList();
         }
+
+        //api/UserFavorites/GetSimilar
+        //[HttpGet("GetSimilar")]
+        //public List<EventList> GetSimilar(List<UserFavorites> currentFavs)
+        //{
+        //    ClaimsPrincipal currentUser = this.User;
+        //    string currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+        //    List<EventList> simFav = new List<EventList>();
+        //    foreach (UserFavorites fav in currentFavs)
+        //    {
+        //        simFav = this.context.eventLists.Where(x => x.CategoryID == fav.CategoryID).ToList();
+        //    }
+
+        //    return simFav;
+        //}
 
         //api/UserFavorites/AddFavorite
         [HttpPost("AddFavorite")]
@@ -57,5 +74,8 @@ namespace EventsMeetup.com.Controllers
 
             return result;
         }
+
+        
+
     }
 }
