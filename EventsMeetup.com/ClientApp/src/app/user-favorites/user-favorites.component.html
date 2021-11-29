@@ -1,2 +1,7 @@
-<app-eventdetail *ngFor="let E of favorites" [Event]="E" [IsFavePage]="true" (UpdateFave)="removeFavorite($event)"></app-eventdetail>
-
+<div>
+  <app-eventdetail *ngFor="let E of favorites" [Event]="E" [IsFavePage]="true" (UpdateFave)="removeFavorite($event)"></app-eventdetail>
+</div>
+<div>
+  <app-eventdetail *ngFor="let S of simFavorites" [Event]="E"></app-eventdetail>
+</div>
+<!--  -->

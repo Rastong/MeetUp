@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { EventService } from '../event.service';
 import { EventList } from '../EventList';
 import { FavoritesService } from '../favorites.service';
+import { ModalService } from '../_modal';
 
 
 @Component({
@@ -19,9 +20,9 @@ export class EventDetailComponent {
 
   status: string = "";
 
-
+  
   /** event detail ctor */
-  constructor(private service: EventService, private faveService: FavoritesService) {
+  constructor(private service: EventService, private faveService: FavoritesService, private modalService: ModalService) {
 
   }
 
@@ -30,21 +31,31 @@ export class EventDetailComponent {
   }
 
   ngOnInit(): void {
+    this.status = '';
+  }
 
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 
   addToFave(): any {
+    this.status = "Added To Favorites";
     this.faveService.addFavorite(this.Event.id, this.Event.categoryID).subscribe((response: any) => {
       console.log(response);
-      this.status = "Added To Favorites";
+     
     });
   }
 
   removeFromFave(): any {
+    this.status = "Removed from Favorites";
     this.UpdateFave.emit(this.Event);
     this.faveService.deleteFavorite(this.Event.id).subscribe((response: any) => {
       console.log(response);
-      this.status = "Removed from Favorites"
+      
     });
   }
 

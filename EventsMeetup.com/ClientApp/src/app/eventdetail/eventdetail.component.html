@@ -1,15 +1,16 @@
 <div class="container d-flex justify-content-center" style="padding: 0.2rem">
   <div class="row shadow p-1 mb-3 bg-white rounded">
-    <div class="col-md-12" style="width:100%">
-      <div class="card" style="width: 100%">
-        <img class="card-img-top" src="{{Event.photo}}"  alt="Card image cap">
+    <div class="col-md-12">
+      
+      <div class="card" >
+        <img class="card-img-top" src="{{Event.photo}}" alt="Card image cap">
         <div class="card-title title">
           <div class="row">
             <div class="col-sm-5">
               {{Event.name}}
             </div>
             <div class="col-sm-7">
-             {{getCategory()}} Event
+              {{getCategory()}} Event
             </div>
           </div>
         </div>
@@ -29,10 +30,18 @@
             </div><br />
           </div>
           <br />
-          <button class="btn btn-success btn-block" (click)="addToFave()" *ngIf="IsFavePage == false"><i class="far fa-heart"></i> Add to Favorites</button>
+          <button class="btn btn-success btn-block" (click)="addToFave(); openModal('custom-modal-1')" *ngIf="IsFavePage == false"><i class="far fa-heart"></i> Add to Favorites</button>
           <button class="btn btn-danger btn-block" (click)="removeFromFave()" *ngIf="IsFavePage == true"><i class="fas fa-trash"></i> Remove from Favorites</button>
+          <!--<div>{{status}}</div>-->
+          <!-- NEEDS TO ONLY SHOW WHEN USER IS LOGGED IN. Right now it is showing always which is not consistent with our current app.  -->
+          <jw-modal id="custom-modal-1">
+            <h1>Success!</h1>
+            <p>You have added this to your favorites!</p>
+            <button (click)="closeModal('custom-modal-1');" class="btn btn-primary">Close</button>
+          </jw-modal>
         </div>
       </div>
     </div>
   </div>
 </div>
+

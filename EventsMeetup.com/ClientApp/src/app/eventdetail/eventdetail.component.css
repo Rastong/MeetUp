@@ -7,3 +7,38 @@ body{
   border-color: #1861ac;
 }
 
+
+
+@media only screen and (min-width:320px) and (max-width:480px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+}
+
+@media only screen and (min-width:480px) and (max-width:600px) { /* smartphones, Android phones, landscape iPhone */
+}
+
+@media only screen and (min-width:600px) and (max-width:800px) { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+}
+
+@media only screen and (min-width:768px) and (max-width:1024px) {
+  img {
+    width: 700px;
+    height: 700px;
+   
+  }/* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) and (max-width:1276px) {
+ img {
+    width: 700px;
+    height: 700px;
+    /* big landscape tablets, laptops, and desktops */
+  }
+
+}
+
+@media (min-width:1281px) and (max-width:2000px) {
+  img {
+    width: 700px;
+    height: 700px;
+    /* hi-res laptops and desktops */
+  }
+}
